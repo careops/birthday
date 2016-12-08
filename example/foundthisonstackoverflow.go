@@ -1,23 +1,30 @@
 package main
 
 import (
-    "encoding/json"
-    "os"
-    "fmt"
+	"encoding/json"
+	"fmt"
+	"log"
+	"os"
 )
 
-type Config struct {
-    name    []string
-    birthday []string
-    twitter []string
-    location []string
-}
+func main() {
 
-file, _ := os.Open("conf.json")
-decoder := json.NewDecoder(file)
-config := Config{}
-err := decoder.Decode(&configuration)
-if err != nil {
-  fmt.Println("error:", err)
+	type Config struct {
+		name     []string
+		birthday []string
+		twitter  []string
+		location []string
+	}
+
+	file, err := os.Open("config.json")
+	if err != nil {
+		log.Fatal(err)
+	}
+	decoder := json.NewDecoder(file)
+	config := Config{}
+	err = decoder.Decode(&config)
+	if err != nil {
+		fmt.Println("error:", err)
+	}
+	fmt.Println(config.name) // output
 }
-fmt.Println(config.name) // output
