@@ -10,10 +10,10 @@ import (
 func main() {
 
 	type Config struct {
-		name     []string
-		birthday []string
-		twitter  []string
-		location []string
+		Name     string
+		Birthday string
+		Twitter  string
+		Location string
 	}
 
 	file, err := os.Open("config.json")
@@ -26,5 +26,5 @@ func main() {
 	if err != nil {
 		fmt.Println("error:", err)
 	}
-	fmt.Println(config.name) // output
+	fmt.Println(config.Name, config.Birthday, config.Twitter, config.Location) // output
 }
