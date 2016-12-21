@@ -11,6 +11,6 @@
 * timezone support
 * todo support (so you can check off which people you already got a gift for)
 * export to calendar
-* import from calendar
+* import from calendar (or other data sources) 
 * import from facebook
 * hand-written birthday emails that are scheduled to be sent
