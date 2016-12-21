@@ -1,7 +1,11 @@
 {
-  "name":"Carmen Andoh",
-  "birthday": "May 28",
-  "twitter":"@caelestisca",
-  "location":"Pittsford, New York, USA"
-
+	"name": "Carmen Andoh",
+	"birthday": "May 28",
+	"twitter": "@caelestisca",
+	"location": "Pittsford, New York, USA",
+	"pets": [{
+		"species": "dog", "pet-name": "woof-woof"
+	}, {"species": "cat",
+		"pet-name": "rover"
+	}]
 }

@@ -9,11 +9,34 @@ import (
 
 func main() {
 
+	// type Config struct {
+	// 	Name     string
+	// 	Birthday string
+	// 	Twitter  string
+	// 	Location string
+
+	// 	type Config struct {
+	// 	Name string
+	// 	Birthday string
+	// 	Twitter string
+	// 	Location string
+	// 	Pets []struct {
+	// 		Species string
+	// 		PetName string `json:"pet-name"`
+	// 	}
+	// }
+
+	type LittleMonster struct {
+		Species string
+		PetName string `json:"pet-name"`
+	}
+
 	type Config struct {
 		Name     string
 		Birthday string
 		Twitter  string
 		Location string
+		Pets     []LittleMonster
 	}
 
 	file, err := os.Open("config.json")
