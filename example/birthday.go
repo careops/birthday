@@ -5,38 +5,33 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
+	"time"
 )
+
+type CustomTime struct {
+	time.Time
+}
+
+const ctLayout = "January 2, 2006"
+
+func (ct *CustomTime) UnmarshalJSON(b []byte) (err error) {
+	s := strings.Trim(string(b), "\"")
+	if s == "null" {
+		ct.Time = time.Time{}
+		return
+	}
+	ct.Time, err = time.Parse(ctLayout, s)
+	return
+}
 
 func main() {
 
-	// type Config struct {
-	// 	Name     string
-	// 	Birthday string
-	// 	Twitter  string
-	// 	Location string
-
-	// 	type Config struct {
-	// 	Name string
-	// 	Birthday string
-	// 	Twitter string
-	// 	Location string
-	// 	Pets []struct {
-	// 		Species string
-	// 		PetName string `json:"pet-name"`
-	// 	}
-	// }
-
-	type LittleMonster struct {
-		Species string
-		PetName string `json:"pet-name"`
-	}
-
 	type Config struct {
 		Name     string
-		Birthday string
+		Birthday CustomTime
 		Twitter  string
 		Location string
-		Pets     []LittleMonster
 	}
 
 	file, err := os.Open("config.json")
@@ -49,5 +44,5 @@ func main() {
 	if err != nil {
 		fmt.Println("error:", err)
 	}
-	fmt.Println(config.Name, config.Birthday, config.Twitter, config.Location) // output
+	fmt.Println(config.Name, config.Birthday.Format(ctLayout), config.Twitter, config.Location) // output
 }

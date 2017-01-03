@@ -1,11 +1,7 @@
 {
 	"name": "Carmen Andoh",
-	"birthday": "May 28",
+	"birthday": "May 28, 1978",
 	"twitter": "@caelestisca",
-	"location": "Pittsford, New York, USA",
-	"pets": [{
-		"species": "dog", "pet-name": "woof-woof"
-	}, {"species": "cat",
-		"pet-name": "rover"
-	}]
+	"location": "Pittsford, New York, USA"
+
 }
