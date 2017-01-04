@@ -29,12 +29,12 @@ func main() {
 
 	type Config struct {
 		Name     string
-		Birthday CustomTime
+		Birthday ReadableBirthday
 		Twitter  string
 		Location string
 	}
 
-	file, err := os.Open("config.json")
+	file, err := os.Open("example/config.json")
 	if err != nil {
 		log.Fatal(err)
 	}

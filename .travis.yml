@@ -11,4 +11,4 @@ env:
 
 script:
 - go test -v ./...;
-- go run hello.go
+- go run birthday.go
