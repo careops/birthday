@@ -9,13 +9,13 @@ import (
 	"time"
 )
 
-type CustomTime struct {
+type ReadableBirthday struct {
 	time.Time
 }
 
 const ctLayout = "January 2, 2006"
 
-func (ct *CustomTime) UnmarshalJSON(b []byte) (err error) {
+func (ct *ReadableBirthday) UnmarshalJSON(b []byte) (err error) {
 	s := strings.Trim(string(b), "\"")
 	if s == "null" {
 		ct.Time = time.Time{}
