@@ -11,4 +11,4 @@ env:
 
 script:
 - go test -v ./...;
-- go run birthday.go
+- go run birthday.go example/config.json

@@ -13,7 +13,7 @@ type ReadableBirthday struct {
 	time.Time
 }
 
-const ctLayout = "January 2, 2006"
+const ctLayout = "January 2"
 
 func (ct *ReadableBirthday) UnmarshalJSON(b []byte) (err error) {
 	s := strings.Trim(string(b), "\"")
@@ -34,7 +34,16 @@ func main() {
 		Location string
 	}
 
-	file, err := os.Open("example/config.json")
+	if len(os.Args) != 2 {
+		fmt.Println("please specify only config file at a time")
+		os.Exit(1)
+	}
+
+	var filepath string
+	filepath = os.Args[1]
+
+	file, err := os.Open(filepath)
+
 	if err != nil {
 		log.Fatal(err)
 	}
