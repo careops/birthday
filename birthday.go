@@ -34,8 +34,13 @@ func main() {
 		Location string
 	}
 
-	if len(os.Args) != 2 {
-		fmt.Println("please specify only config file at a time")
+	if len(os.Args) == 1 {
+		fmt.Println("I need a .json file to read from, please add this to your go run birthday.go command.")
+		os.Exit(1)
+	}
+
+	if len(os.Args) > 2 {
+		fmt.Println("You gave me too many .json files to read from, please only use one .json in your go run birthday.go command.")
 		os.Exit(1)
 	}
 
