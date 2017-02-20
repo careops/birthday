@@ -53,10 +53,13 @@ func main() {
 		log.Fatal(err)
 	}
 	decoder := json.NewDecoder(file)
-	config := Config{}
-	err = decoder.Decode(&config)
+	configs := []Config{}
+	err = decoder.Decode(&configs)
 	if err != nil {
 		fmt.Println("error:", err)
+		os.Exit(1)
 	}
-	fmt.Println(config.Name, config.Birthday.Format(ctLayout), config.Twitter, config.Location) // output
+	//loops around the code address each element of list using a variable
+
+	fmt.Println(configs[0].Name, configs[0].Birthday.Format(ctLayout), configs[0].Twitter, configs[0].Location) // output
 }

@@ -1,7 +1,18 @@
-{
-	"name": "Carmen Snazzy Rsync Empress",
-	"birthday": "May 28",
-	"twitter": "@rsync_empress",
-	"location": "the Interwebz"
+[{
+		"name": "Carmen Snazzy Rsync Empress",
+		"birthday": "May 28",
+		"twitter": "@rsync_empress",
+		"location": "the Interwebz"
+	}
 
-}
+	,
+
+	{
+		"name": "Igor Rigor Vigor",
+		"birthday": "March 20",
+		"twitter": "@igorwhilefalse",
+		"location": "the Interwebz"
+
+	}
+
+]
