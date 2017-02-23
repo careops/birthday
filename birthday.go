@@ -61,7 +61,7 @@ func main() {
 	}
 	//loops around the code address each element of list using a variable
 
-	for i := 0; i < 2; i++ {
+	for i := 0; i < (len(configs)); i++ {
 		fmt.Println(configs[i].Name, configs[i].Birthday.Format(ctLayout), configs[i].Twitter, configs[i].Location) // output
 	}
 

@@ -1,4 +1,5 @@
-[{
+[
+	{
 		"name": "Carmen Snazzy Rsync Empress",
 		"birthday": "May 28",
 		"twitter": "@rsync_empress",
@@ -11,6 +12,15 @@
 		"name": "Igor Rigor Vigor",
 		"birthday": "March 20",
 		"twitter": "@igorwhilefalse",
+		"location": "the Interwebz"
+
+	}
+
+	,
+	{
+		"name": "nemraC hodnA",
+		"birthday": "November 28",
+		"twitter": "@acsits",
 		"location": "the Interwebz"
 
 	}
