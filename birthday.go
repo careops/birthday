@@ -14,7 +14,7 @@ type ReadableBirthday struct {
 }
 
 // TODO: support short date format in addition to long, e.g. "Jan 2"
-const ctLayout = "January 2"
+const readableBirthdayLayout = "January 2"
 
 func (ct *ReadableBirthday) UnmarshalJSON(b []byte) (err error) {
 	s := strings.Trim(string(b), "\"")
@@ -22,7 +22,7 @@ func (ct *ReadableBirthday) UnmarshalJSON(b []byte) (err error) {
 		ct.Time = time.Time{}
 		return
 	}
-	ct.Time, err = time.Parse(ctLayout, s)
+	ct.Time, err = time.Parse(readableBirthdayLayout, s)
 	return
 }
 
@@ -65,7 +65,7 @@ func main() {
 
 	// TODO: look into `range`
 	for i := 0; i < (len(configs)); i++ {
-		fmt.Println(configs[i].Name, configs[i].Birthday.Format(ctLayout), configs[i].Twitter, configs[i].Location) // output
+		fmt.Println(configs[i].Name, configs[i].Birthday.Format(readableBirthdayLayout), configs[i].Twitter, configs[i].Location) // output
 	}
 
 }
