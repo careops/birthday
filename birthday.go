@@ -64,8 +64,8 @@ func main() {
 	// TODO: display birthdays this week
 
 	// TODO: look into `range`
-	for i := range configs {
-		fmt.Println(configs[i].Name, configs[i].Birthday.Format(readableBirthdayLayout), configs[i].Twitter, configs[i].Location) // output
+	for _, v := range configs {
+		fmt.Println(v.Name, v.Birthday.Format(readableBirthdayLayout), v.Twitter, v.Location) // output
 	}
 
 }
