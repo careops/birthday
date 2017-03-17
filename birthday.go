@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -63,9 +64,58 @@ func main() {
 
 	// TODO: display birthdays this week
 
-	// TODO: look into `range`
+	// the 4 types of for loops in go:
+	//
+	// infinite
+	// for {
+	//   ...
+	//}
+	//
+	// range
+	// for i, v := range configs {
+	//   ...
+	//}
+	//
+	// c-like
+	// for i := 0; i < n; i++ {
+	//   ...
+	//}
+	//
+	// while
+	// for i < n {
+	//   ...
+	//}
+
+	// func (*Reader) ReadLine
+	// func (b *Reader) ReadLine() (line []byte, isPrefix bool, err error)
+
+	// line = "yes"
+	// [121 101 115]
+
+	acceptedTermsAndConditions := false
+	for acceptedTermsAndConditions == false {
+		fmt.Print("are you willing to provide your soul to the devil? ")
+		reader := bufio.NewReader(os.Stdin)
+		line, _, err := reader.ReadLine()
+		if err != nil {
+			fmt.Println("error:", err)
+			os.Exit(1)
+		}
+		//if len(line) == 3 && line[0] == 121 && line[1] == 101 && line[2] == 115 {
+		if string(line) == "yes" {
+			acceptedTermsAndConditions = true
+			fmt.Println("i have taken your soul, mortal!")
+		}
+		// fmt.Println(line)
+		// fmt.Println(string(line))
+	}
+
+	//for {
 	for _, v := range configs {
+		//if v.Birthday.Format(readableBirthdayLayout) == #ISOweek
+		//{
 		fmt.Println(v.Name, v.Birthday.Format(readableBirthdayLayout), v.Twitter, v.Location) // output
 	}
+	//}
 
 }
