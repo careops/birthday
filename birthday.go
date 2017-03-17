@@ -65,7 +65,7 @@ func main() {
 		_, week := v.Birthday.ISOWeek()
 		_, currentWeek := time.Now().ISOWeek()
 		if week == currentWeek {
-			fmt.Printf("* %v, on %v 🎂🎈🎉\n", v.Name, v.Birthday.Format(readableBirthdayLayout))
+			fmt.Printf("* %v, on %v 🎂 🎈 🎉\n", v.Name, v.Birthday.Format(readableBirthdayLayout))
 
 		}
 	}
