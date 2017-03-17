@@ -63,9 +63,12 @@ func main() {
 
 	// TODO: display birthdays this week
 
-	// TODO: look into `range`
 	for _, v := range configs {
-		fmt.Println(v.Name, v.Birthday.Format(readableBirthdayLayout), v.Twitter, v.Location) // output
-	}
+		_, week := v.Birthday.ISOWeek()
+		_, currentWeek := time.Now().ISOWeek()
+		if week == currentWeek {
+			fmt.Println(v.Name, v.Birthday.Format(readableBirthdayLayout), v.Twitter, v.Location) // output
 
+		}
+	}
 }
