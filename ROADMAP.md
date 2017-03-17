@@ -1,11 +1,10 @@
-### Goals to reach `0.1.0`
+### Goals to reach `1.0.0`
 
 
 **initial feature set:**
 * `birthday` command that can be invoked from the command line
 * reads names and birth dates from a `config.json` file
 * lists the names of everyone whose birthday is happening this week or month
-time range flag that can configure time frame
 
 **enhancements:**
 * web ui
@@ -15,3 +14,4 @@ time range flag that can configure time frame
 * import from calendar (or other data sources)
 * import from facebook
 * hand-written birthday emails that are scheduled to be sent
+*  time range flag that can configure time frame 

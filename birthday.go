@@ -60,13 +60,14 @@ func main() {
 		fmt.Println("error:", err)
 		os.Exit(1)
 	}
-
+	fmt.Println("The following people have birthdays this week:")
 	for _, v := range configs {
 		_, week := v.Birthday.ISOWeek()
 		_, currentWeek := time.Now().ISOWeek()
 		if week == currentWeek {
-			fmt.Println(v.Name, v.Birthday.Format(readableBirthdayLayout), v.Twitter, v.Location) // output
+			fmt.Printf("* %v, on %v 🎂🎈🎉\n", v.Name, v.Birthday.Format(readableBirthdayLayout))
 
 		}
 	}
+
 }
