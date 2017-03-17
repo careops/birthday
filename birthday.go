@@ -61,8 +61,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	// TODO: display birthdays this week
-
 	for _, v := range configs {
 		_, week := v.Birthday.ISOWeek()
 		_, currentWeek := time.Now().ISOWeek()
