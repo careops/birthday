@@ -45,7 +45,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	var filepath string
+	filepath := ""
 	filepath = os.Args[1]
 
 	file, err := os.Open(filepath)
@@ -60,6 +60,7 @@ func main() {
 		fmt.Println("error:", err)
 		os.Exit(1)
 	}
+	//TODO birthday-test.go to check for edge cases around ISOWeek, end of year
 	fmt.Println("The following people have birthdays this week:")
 	for _, v := range configs {
 		_, week := v.Birthday.ISOWeek()

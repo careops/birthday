@@ -8,6 +8,7 @@
 
 **enhancements:**
 * web ui
+* test-birthday.go file that tests all assumptions on dates and time
 * timezone support
 * todo support (so you can check off which people you already got a gift for)
 * export to calendar
@@ -15,3 +16,4 @@
 * import from facebook
 * hand-written birthday emails that are scheduled to be sent
 *  time range flag that can configure time frame 
+* get the birthday person amazon wishlist and print
