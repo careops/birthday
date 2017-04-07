@@ -15,6 +15,7 @@ type ReadableBirthday struct {
 
 // TODO: support short date format in addition to long, e.g. "Jan 2"
 const readableBirthdayLayout = "January 2"
+const readableBirthdayShortLayout = "Jan 2"
 
 func (ct *ReadableBirthday) UnmarshalJSON(b []byte) (err error) {
 	s := strings.Trim(string(b), "\"")
@@ -66,8 +67,10 @@ func main() {
 		_, week := v.Birthday.ISOWeek()
 		_, currentWeek := time.Now().ISOWeek()
 		if week == currentWeek {
-			fmt.Printf("* %v, on %v 🎂 🎈 🎉\n", v.Name, v.Birthday.Format(readableBirthdayLayout))
-
+			fmt.Printf("* %v, on %v 🎂 🎈 🎉\n", v.Name, v.Birthday.Format(readableBirthdayLayout), v.Birthday.Format(readableBirthdayShortLayout))
+			// if v.Birthday.Format = readableBirthdayLayout, print that
+			// else print v.Birthday.Format(readableBirthdayShortLayout)
+			// can happen in this range configs
 		}
 	}
 
