@@ -67,8 +67,10 @@ func main() {
 		_, week := v.Birthday.ISOWeek()
 		_, currentWeek := time.Now().ISOWeek()
 		if week == currentWeek {
-			fmt.Printf("* %v, on %v or short %v 🎂 🎈 🎉\n", v.Name, v.Birthday.Format(readableBirthdayLayout), v.Birthday.Format(readableBirthdayShortLayout))
-
+			fmt.Printf("* %v, on %v 🎂 🎈 🎉\n", v.Name, v.Birthday.Format(readableBirthdayLayout), v.Birthday.Format(readableBirthdayShortLayout))
+			// if v.Birthday.Format = readableBirthdayLayout, print that
+			// else print v.Birthday.Format(readableBirthdayShortLayout)
+			// can happen in this range configs
 		}
 	}
 
