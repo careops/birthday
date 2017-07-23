@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"net/http"
 	"os"
 	"strings"
 	"time"
@@ -61,14 +62,25 @@ func main() {
 		os.Exit(1)
 	}
 	//TODO birthday-test.go to check for edge cases around ISOWeek, end of year
-	fmt.Println("The following people have birthdays this week:")
-	for _, v := range configs {
-		_, week := v.Birthday.ISOWeek()
-		_, currentWeek := time.Now().ISOWeek()
-		if week == currentWeek {
-			fmt.Printf("* %v, on %v 🎂 🎈 🎉\n", v.Name, v.Birthday.Format(readableBirthdayLayout))
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "The following people have birthdays this week:*")
+		birthdayCount := 0
+
+		for _, v := range configs {
+			_, week := v.Birthday.ISOWeek()
+			_, currentWeek := time.Now().ISOWeek()
+			if week == currentWeek {
+
+				fmt.Fprintf(w, "\n %v, on %v 🎂 🎈 🎉\n", v.Name, v.Birthday.Format(readableBirthdayLayout))
+				birthdayCount++
+			}
 
 		}
-	}
-
+		if birthdayCount == 0 {
+			fmt.Fprintf(w, "Sorry, no birthdays this week, check back next week")
+		}
+	})
+	fmt.Println("Listening and Serving on localhost:8080/  Go there!")
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
